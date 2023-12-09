@@ -1,2 +1,1 @@
-# automatic-funicular
-https://nacto.org/publication/city-limits/the-need/speed-kills/
+I just try to make a tool for someone who want to think twice about driving at high speed
