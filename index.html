@@ -155,7 +155,7 @@
         <div class="column-container">
             <img src="https://raw.githubusercontent.com/taufec/studious-train/1fc0d8098c496884d32f57f163fedaa9a316a6a9/Unknown.png" class="header-image" alt="Header Image">
             <p style="text-align:center">Kira masa yang dapat dijimatkan dengan drive lebih laju &amp; risiko lain yang datang bersama kelajuan.</p>
-             <div class="box">
+            <div class="box">
     <label class="label">Kelajuan Sebelum: <span id="speedBeforeValue">80</span>km/j</label>
     <button onclick="decreaseValue('speedBefore')">-</button>
     <input type="range" id="speedBefore" class="slider" min="10" max="200" value="70" oninput="calculateTime()">
@@ -175,7 +175,6 @@
     <input type="range" id="distance" class="slider" min="10" max="1000" value="30" oninput="calculateTime()">
     <button onclick="increaseValue('distance')">+</button>
   </div>
-            <div class="box">
                 <label class="label">Risiko Kemalangan Yang Boleh Bawa Maut:</label>
                     <span id="fatalityProbabilityAfter" class="fatality-probability"></span>
                     <p>Peratusan risiko dikira berdasarkan model data statistik daripada <a href="https://nacto.org/publication/city-limits/the-need/speed-kills/">NACTO</a></p>
@@ -234,22 +233,21 @@
             document.getElementById("fatalityProbabilityAfter").textContent = probAfter + '%';
         }
 
-        // Menambahkan event listener untuk slider
-        document.getElementById("speedBefore").addEventListener("input", calculateTime);
-        document.getElementById("speedAfter").addEventListener("input", calculateTime);
-        document.getElementById("distance").addEventListener("input", calculateTime);
-
-        calculateTime(); // Memanggil fungsi saat halaman dimuat
-        // Fungsi untuk memaparkan dan menyembunyikan iframe popup
-        function toggleIframePopup() {
-            var iframePopup = document.getElementById('iframePopup');
-            if (iframePopup.style.display === 'none') {
-                iframePopup.style.display = 'block';
-            } else {
-                iframePopup.style.display = 'none';
-            }
-        }
-        // Fungsi untuk menambah nilai slider
+// Menambahkan event listener untuk slider
+document.getElementById("speedBefore").addEventListener("input", calculateTime);
+document.getElementById("speedAfter").addEventListener("input", calculateTime);
+document.getElementById("distance").addEventListener("input", calculateTime);
+calculateTime(); // Memanggil fungsi saat halaman dimuat
+// Fungsi untuk memaparkan dan menyembunyikan iframe popup
+function toggleIframePopup() {
+  var iframePopup = document.getElementById('iframePopup');
+  if (iframePopup.style.display === 'none') {
+    iframePopup.style.display = 'block';
+  } else {
+    iframePopup.style.display = 'none';
+  }
+}
+// Fungsi untuk menambah nilai slider
 function increaseValue(id) {
   var slider = document.getElementById(id);
   if (slider.value < slider.max) {
@@ -257,7 +255,6 @@ function increaseValue(id) {
     calculateTime();
   }
 }
-
 // Fungsi untuk mengurangkan nilai slider
 function decreaseValue(id) {
   var slider = document.getElementById(id);
