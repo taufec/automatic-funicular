@@ -137,6 +137,15 @@
                 margin-top: 40px !important;
         }
     </style>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C4ED3N5711"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C4ED3N5711');
+</script>
 </head>
 <body>
     <div class="banner">
@@ -155,7 +164,7 @@
                 <input type="range" id="speedAfter" class="slider" min="10" max="200" value="100" oninput="calculateTime()">
             </div>
             <div class="box">
-                <label class="label">Jarak Perjalanan <span id="distanceValue">100</span></label>
+                <label class="label">Jarak Perjalanan <span id="distanceValue">1000</span></label>
                 <input type="range" id="distance" class="slider" min="10" max="1000" value="30" oninput="calculateTime()">
             </div>
             <div class="box">
