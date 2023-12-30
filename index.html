@@ -155,18 +155,26 @@
         <div class="column-container">
             <img src="https://raw.githubusercontent.com/taufec/studious-train/1fc0d8098c496884d32f57f163fedaa9a316a6a9/Unknown.png" class="header-image" alt="Header Image">
             <p style="text-align:center">Kira masa yang dapat dijimatkan dengan drive lebih laju &amp; risiko lain yang datang bersama kelajuan.</p>
-            <div class="box">
-                <label class="label">Kelajuan Sebelum: <span id="speedBeforeValue">80</span>km/j</label>
-                <input type="range" id="speedBefore" class="slider" min="10" max="200" value="70" oninput="calculateTime()">
-            </div>
-            <div class="box">
-                <label class="label">Kelajuan Selepas: <span id="speedAfterValue">130</span>km/j</label>
-                <input type="range" id="speedAfter" class="slider" min="10" max="200" value="100" oninput="calculateTime()">
-            </div>
-            <div class="box">
-                <label class="label">Jarak Perjalanan <span id="distanceValue">1000</span></label>
-                <input type="range" id="distance" class="slider" min="10" max="1000" value="30" oninput="calculateTime()">
-            </div>
+             <div class="box">
+    <label class="label">Kelajuan Sebelum: <span id="speedBeforeValue">80</span>km/j</label>
+    <button onclick="decreaseValue('speedBefore')">-</button>
+    <input type="range" id="speedBefore" class="slider" min="10" max="200" value="70" oninput="calculateTime()">
+    <button onclick="increaseValue('speedBefore')">+</button>
+  </div>
+  <!-- Slider Kelajuan Selepas -->
+  <div class="box">
+    <label class="label">Kelajuan Selepas: <span id="speedAfterValue">130</span>km/j</label>
+    <button onclick="decreaseValue('speedAfter')">-</button>
+    <input type="range" id="speedAfter" class="slider" min="10" max="200" value="100" oninput="calculateTime()">
+    <button onclick="increaseValue('speedAfter')">+</button>
+  </div>
+  <!-- Slider Jarak Perjalanan -->
+  <div class="box">
+    <label class="label">Jarak Perjalanan <span id="distanceValue">1000</span>km</label>
+    <button onclick="decreaseValue('distance')">-</button>
+    <input type="range" id="distance" class="slider" min="10" max="1000" value="30" oninput="calculateTime()">
+    <button onclick="increaseValue('distance')">+</button>
+  </div>
             <div class="box">
                 <label class="label">Risiko Kemalangan Yang Boleh Bawa Maut:</label>
                     <span id="fatalityProbabilityAfter" class="fatality-probability"></span>
@@ -241,6 +249,23 @@
                 iframePopup.style.display = 'none';
             }
         }
+        // Fungsi untuk menambah nilai slider
+function increaseValue(id) {
+  var slider = document.getElementById(id);
+  if (slider.value < slider.max) {
+    slider.value = parseInt(slider.value) + 1;
+    calculateTime();
+  }
+}
+
+// Fungsi untuk mengurangkan nilai slider
+function decreaseValue(id) {
+  var slider = document.getElementById(id);
+  if (slider.value > slider.min) {
+    slider.value = parseInt(slider.value) - 1;
+    calculateTime();
+  }
+}
     </script>
 </body>
 </html>
